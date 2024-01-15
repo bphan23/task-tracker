@@ -30,7 +30,7 @@ const dailyTasks = [
     completed: false,
   },
   {
-    id: 5,
+    id: 55667788,
     description: "Read",
     duration: 30,
     minutesOrHours: "minutes",
@@ -86,10 +86,12 @@ function Logo() {
 }
 
 function Tracker({ tasks }) {
-  if (tasks.length === 0) return;
-  <p className="tracker">
-    Start adding some tasks you need to complete today!
-  </p>;
+  if (tasks.length === 0)
+    return (
+      <p className={`tracker ${tasks.length === 0 ? "start" : ""}`}>
+        Start Adding Some Tasks You Need To Complete Today! 😁
+      </p>
+    );
 
   const numOfTasks = tasks.length;
   const numOfTasksCompleted = tasks.filter((task) => task.completed).length;
@@ -99,21 +101,26 @@ function Tracker({ tasks }) {
 
   if (percentOfTasksCompleted === 100)
     return (
-      <p className="tracker success">
-        Congratulations! You Finished All of Your Tasks For The Day 😎
+      <p
+        className={`tracker ${
+          percentOfTasksCompleted === 100 ? "success" : ""
+        }`}
+      >
+        Congratulations! You Finished All of Your Tasks For The Day 🥳
       </p>
     );
 
   return (
-    <p className="tracker in-progess">
-      You Are {percentOfTasksCompleted}% Done With Your Tasks Today, Keep Going!
+    <p className={`tracker ${true ? "in-progress" : ""}`}>
+      You Are {percentOfTasksCompleted}% Done With Your Tasks Today, Keep It Up!
+      😎
     </p>
   );
 }
 
 function TasksList({ tasks, onDeleteTask, onToggleTask, onClearTask }) {
   return (
-    <div className="task-list">
+    <div className="task-container">
       <h2>{tasks.length === 0 ? "No Current Task" : "Current Task"}</h2>
       <ul>
         {tasks.map((task) => (
@@ -125,12 +132,15 @@ function TasksList({ tasks, onDeleteTask, onToggleTask, onClearTask }) {
           />
         ))}
       </ul>
-      <Button handleFunction={() => onClearTask()}>Clear</Button>
+      <div id="clear-btn">
+        <ButtonTwo handleFunction={() => onClearTask()}>Clear</ButtonTwo>
+      </div>
     </div>
   );
 }
 
 function Task({ task, onToggleTask, onDeleteTask }) {
+  console.log(task.id);
   return (
     <li>
       <input
@@ -164,15 +174,13 @@ function FormAddTask({ onAddTask }) {
     if (!description || !duration) return;
 
     // create new task
-
     const newTask = {
-      id: crypto.randomUUID(),
-      description: description,
-      duration: duration,
-      minutesOrHours: minutesOrHours,
+      id: Date.now(),
+      description,
+      duration,
+      minutesOrHours,
       completed: false,
     };
-    console.log(newTask);
 
     // add new task
     onAddTask(newTask);
@@ -185,7 +193,7 @@ function FormAddTask({ onAddTask }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
+      <div id="form-container">
         <label>Task</label>
         <input
           id="task-input"
@@ -211,7 +219,9 @@ function FormAddTask({ onAddTask }) {
           <option value="hours">(Hour / Hours)</option>
         </select>
       </div>
-      <Button>Add</Button>
+      <div id="add-btn">
+        <ButtonTwo>Add</ButtonTwo>
+      </div>
     </form>
   );
 }
@@ -219,6 +229,15 @@ function FormAddTask({ onAddTask }) {
 function Button({ children, handleFunction }) {
   return (
     <button className="btn" onClick={handleFunction}>
+      {children}
+    </button>
+  );
+}
+
+// ButtonTwo - used for clear and add
+function ButtonTwo({ children, handleFunction }) {
+  return (
+    <button className="btn-two" onClick={handleFunction}>
       {children}
     </button>
   );
