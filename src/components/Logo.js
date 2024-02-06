@@ -1,3 +1,3 @@
 export function Logo() {
-  return <h1 id="logo">Daily Task Tracker</h1>;
+  return <h1 className="header">Task Tracker</h1>;
 }

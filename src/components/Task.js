@@ -1,4 +1,4 @@
-import { Button } from "./Button";
+import { TaskItemButton } from "./TaskItemButton";
 
 export function Task({ task, onToggleTask, onDeleteTask }) {
   return (
@@ -18,7 +18,9 @@ export function Task({ task, onToggleTask, onDeleteTask }) {
         )
       </span>
 
-      <Button handleFunction={() => onDeleteTask(task.id)}>❌</Button>
+      <TaskItemButton handleFunction={() => onDeleteTask(task.id)}>
+        ❌
+      </TaskItemButton>
     </li>
   );
 }

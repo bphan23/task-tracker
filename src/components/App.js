@@ -1,10 +1,11 @@
 import { useState } from "react";
+
+import { AppLayout } from "./AppLayout";
 import { Logo } from "./Logo";
 import { Tracker } from "./Tracker";
 import { TasksList } from "./TasksList";
 import { FormAddTask } from "./FormAddTask";
 
-/*
 // TEST DATA
 const dailyTasks = [
   {
@@ -43,10 +44,9 @@ const dailyTasks = [
     completed: false,
   },
 ];
-*/
 
 export default function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(dailyTasks);
 
   function handleAddTask(task) {
     // Cannot mutate state - so create a brand new array
@@ -76,16 +76,18 @@ export default function App() {
   }
 
   return (
-    <div className="app">
-      <Logo />
-      <Tracker tasks={tasks} />
-      <FormAddTask onAddTask={handleAddTask} />
-      <TasksList
-        tasks={tasks}
-        onDeleteTask={handleDeleteTask}
-        onToggleTask={handleCompletedTask}
-        onClearTask={handleClearTask}
-      />
+    <div className="app-container">
+      <AppLayout>
+        <Logo />
+        <Tracker tasks={tasks} />
+        <FormAddTask onAddTask={handleAddTask} />
+        <TasksList
+          tasks={tasks}
+          onDeleteTask={handleDeleteTask}
+          onToggleTask={handleCompletedTask}
+          onClearTask={handleClearTask}
+        />
+      </AppLayout>
     </div>
   );
 }

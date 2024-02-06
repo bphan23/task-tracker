@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ButtonTwo } from "./ButtonTwo";
+import { Button } from "./Button";
 
 export function FormAddTask({ onAddTask }) {
   const [description, setDescription] = useState("");
@@ -55,9 +55,9 @@ export function FormAddTask({ onAddTask }) {
           <option value="minutes">(Minute / Minutes)</option>
           <option value="hours">(Hour / Hours)</option>
         </select>
-      </div>
-      <div id="add-btn">
-        <ButtonTwo>Add</ButtonTwo>
+        <span id="add-btn">
+          <Button>Add Task</Button>
+        </span>
       </div>
     </form>
   );
