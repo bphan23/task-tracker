@@ -59,6 +59,7 @@ body {
   margin-bottom: 3rem;
   width: 60%;
   text-align: center;
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
 }
 
 .start {
@@ -86,14 +87,6 @@ form {
   padding: 2rem;
   border-bottom: 1px solid white;
 }
-
-/*
-.form-container {
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-}
-*/
 
 #add-btn {
   margin-left: 2rem;
@@ -200,10 +193,6 @@ li .btn {
   background-color: white;
   margin: 1rem;
   width: 90%;
-  /*
-  --shadow:dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-  --shadow:light: 0 2rem 5rem rgba(0, 0, 0, 0.6);
-  */
   box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
 }
 
