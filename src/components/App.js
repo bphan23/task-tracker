@@ -11,15 +11,15 @@ const dailyTasks = [
   {
     id: 11223344,
     description: "Solve 2 LeetCode Problems",
-    duration: 2,
-    minutesOrHours: "hours",
+    duration: 45,
+    minutesOrHours: "minutes",
     completed: false,
   },
   {
     id: 22334455,
-    description: "Code With React",
+    description: "Review Data Structures & Algorithms",
     duration: 1,
-    minutesOrHours: "hours",
+    minutesOrHours: "hour",
     completed: false,
   },
   {
@@ -31,16 +31,9 @@ const dailyTasks = [
   },
   {
     id: 44556677,
-    description: "Go To The Gym",
+    description: "Study / Code with React",
     duration: 1,
-    minutesOrHours: "hours",
-    completed: false,
-  },
-  {
-    id: 55667788,
-    description: "Read",
-    duration: 30,
-    minutesOrHours: "minutes",
+    minutesOrHours: "hour",
     completed: false,
   },
 ];
